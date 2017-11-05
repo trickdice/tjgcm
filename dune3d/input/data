@@ -1,0 +1,95 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ Tref = 28.687509,28.687509,28.687509,28.687509,
+        28.859167,28.859167,28.859167,28.859167,
+        26.680192,26.680192,26.680192,26.680192,
+        23.811867,23.811867,23.811867,23.811867,
+        22.079925,22.079925,22.079925,22.079925,
+        19.888750,19.888750,19.888750,19.888750,
+        19.311767,19.311767,19.311767,19.311767,
+        18.902106,18.902106,18.902106,18.902106,
+        18.357748,18.357748,18.357748,18.357748,
+        17.759113,17.759113,17.759113,17.759113,
+        16.556308,16.556308,16.556308,16.556308,
+        15.669368,15.669368,15.669368,15.669368,
+        14.865648,14.865648,14.865648,14.865648,
+        14.583286,14.583286,14.583286,14.583286,
+        14.189840,14.189840,14.189840,14.189840,
+        13.878497,13.878497,13.878497,13.878497,
+        13.429775,13.429775,13.429775,13.429775,
+        12.817094,12.817094,12.817094,12.817094,
+        12.608234,12.608234,12.608234,12.608234,
+        12.347093,12.347093,12.347093,12.347093,
+        11.999420,11.999420,11.999420,11.999420,
+        11.331249,11.331249,11.331249,11.331249,
+        10.977341,10.977341,10.977341,10.977341,
+        10.567425,10.567425,10.567425,10.567425,
+        10.257790,10.257790,10.257790,10.257790,
+ sRef= 100*35.,
+ viscAz=1.E-3,
+ viscAh=1.E-2,
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.FALSE.,
+ diffKhT=1.E-2
+ diffKzT=1.E-3,
+ f0=0.0,
+ beta=0.E-11,
+ eosType='LINEAR',
+ tAlpha=2.E-4,
+ sBeta =0.E-4,
+ gravity=9.81,
+ implicitFreeSurface=.TRUE.,
+ exactConserv=.TRUE.
+ nonHydrostatic=.FALSE.,
+ hFacMin=0.2,
+ implicSurfPress=0.5,
+ implicDiv2DFlow=0.5,
+ nonlinFreeSurf=3,
+ hFacInf=0.2,
+ hFacSup=1.8,
+ saltStepping=.FALSE.,
+#- not safe to use globalFiles in multi-processors runs
+#globalFiles=.TRUE.,
+ readBinaryPrec=64,
+ writeBinaryPrec=64,
+ writeStatePrec=64,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-13,
+ cg3dMaxIters=400,
+ cg3dTargetResidual=1.E-13,
+ &
+
+# Time stepping parameters
+ &PARM03
+ nIter0=0,
+ nTimeSteps=1000000,
+ deltaT=0.1,
+ abEps=0.1,
+ pChkptFreq=0.,
+ chkptFreq=0.,
+ dumpFreq=200.,
+ monitorFreq=2500.,
+ monitorSelect=2,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ delX=80*198.,
+ delY=60*262.,
+ delZ=100*4.,
+ &
+
+# Input datasets
+ &PARM05
+ hydrogThetaFile='T.init',
+ bathyFile='topog.slope',
+ &
