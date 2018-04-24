@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-
+# picks topography-2d only
 im = Image.open("D84rb.tif")
 fig, ax = plt.subplots()
 im = ax.imshow(im, interpolation='bilinear',
